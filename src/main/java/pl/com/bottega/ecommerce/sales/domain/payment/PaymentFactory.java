@@ -10,4 +10,8 @@ public class PaymentFactory {
         return new Payment(aggregateId, clientData, amount);
     }
 
+    public static Payment createPaymentRollBack(Payment payment) {
+        return payment.rollBack();
+    }
+
 }
