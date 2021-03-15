@@ -49,7 +49,7 @@ public class Invoice {
         return new InvoiceBuilder();
     }
 
-    private static class InvoiceBuilder {
+    public static class InvoiceBuilder {
 
         private ClientData client;
 
