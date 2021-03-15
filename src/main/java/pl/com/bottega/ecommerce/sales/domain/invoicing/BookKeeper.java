@@ -17,7 +17,11 @@ import pl.com.bottega.ecommerce.sales.domain.invoicing.Invoice.InvoiceBuilder;
 
 public class BookKeeper {
 
-    private final TaxFactory taxFactory = new TaxFactoryImpl();
+    private final TaxFactory taxFactory;
+
+    public BookKeeper(TaxFactory taxFactory) {
+        this.taxFactory = taxFactory;
+    }
 
     public Invoice issuance(InvoiceRequest invoiceRequest) {
         InvoiceBuilder invoiceBuilder = Invoice.builder()
