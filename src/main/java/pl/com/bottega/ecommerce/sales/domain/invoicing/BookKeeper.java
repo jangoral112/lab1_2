@@ -22,12 +22,12 @@ import pl.com.bottega.ecommerce.sales.domain.invoicing.Invoice.InvoiceBuilder;
 
 public class BookKeeper {
 
-    public Invoice issuance(ClientData client, List<RequestItem> items) {
+    public Invoice issuance(InvoiceRequest invoiceRequest) {
         InvoiceBuilder invoiceBuilder = Invoice.builder()
-                                               .setClientData(client)
+                                               .setClientData(invoiceRequest.getClient())
                                                .setId(Id.generate());
 
-        for (RequestItem item : items) {
+        for (RequestItem item : invoiceRequest.getItems()) {
             Money net = item.getTotalCost();
             BigDecimal ratio = null;
             String desc = null;
